@@ -1,0 +1,12 @@
+/evidence
+/kubernetes
+/scripts
+.gitignore
+README.md
+Dockerfile
+docker-compose.yml
+*.md
+./much-to-do/.gitignore
+./much-to-do/Server/*.md
+./much-to-do/Server/MuchToDo/.env*
+./much-to-do/Server/MuchToDo/*.yaml

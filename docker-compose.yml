@@ -1,0 +1,44 @@
+services:
+  backend_service:
+    image: much-to-do:latest
+    build: .
+    container_name: backend_local
+    volumes:
+      - ./much-to-do/Server/MuchToDo/.env:/app/.env:ro
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    depends_on:
+      - mongo_db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+    networks:
+      - much-to-do
+
+  mongo_db:
+    image: mongo:latest
+    container_name: mongo_local
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_ROOT_USERNAME:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_ROOT_PASSWORD:-SuperadmIn01}
+      MONGO_INITDB_DATABASE: ${DB_NAME:-admin}
+    ports:
+      - "${DB_PORT:-27017}:27017"
+    volumes:
+      - mongodb_data:/data/db
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+    networks:
+      - much-to-do
+
+volumes:
+  mongodb_data:
+
+networks:
+  much-to-do:
+    driver: bridge
