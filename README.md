@@ -130,7 +130,7 @@ chmod +x scripts/k8s-cleanup.sh
 
 ---
 
-## Troubleshooting
+## 🔬 Troubleshooting
 
 - Error encountered while installling ingress controller, was resolved by changing ISP provider
 
@@ -162,7 +162,7 @@ Screenshots of the successful deployment can be found in the /evidence directory
 
   ![snapshot](./evidence/docker-run.png)
 
-- Application responding via docker-compose.
+- Application responding via docker-compose (http://localhost:8080/swagger/index.html).
 
   ![snapshot](./evidence/docker-app.png)
 
@@ -172,14 +172,16 @@ Screenshots of the successful deployment can be found in the /evidence directory
 
 - Kubernetes deployments running
 
-  ![snapshot](./evidence/)
+  ![snapshot](./evidence/deployment-a.png)
+  ![snapshot](./evidence/deployment-b.png)
+  ![snapshot](./evidence/deployment-c.png)
 
-- Application accessible through a NodePort Service type to the host or Kubernetes ingress.
+- Application accessible through a NodePort Service type to the host or Kubernetes ingress (http://localhost/swagger/index.html).
 
-  ![snapshot](./evidence/)
+  ![snapshot](./evidence/kublets-app.png)
 
 - Kubectl commands showing pod status, services, and ingress.
 
-  ![snapshot](./evidence/kublets-app.png)
+  ![snapshot](./evidence/status.png)
 
 ---

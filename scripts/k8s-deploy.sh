@@ -59,7 +59,7 @@ echo ">>> Checking Ingress status..."
 kubectl get pods -n ingress-nginx -l app.kubernetes.io/component=controller
 
 echo ">>> Waiting for Ingress to be ready..."
-kubectl wait --namespace=ingress-nginx --for=condition=ready pod -l app.kubernetes.io/component=controller --timeout=1200s || true
+kubectl wait --namespace=ingress-nginx --for=condition=ready pod -l app.kubernetes.io/component=controller --timeout=1800s || true
 
 echo ">>> Checking ingress status..."
 kubectl get ingress -n muchtodo

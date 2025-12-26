@@ -5,7 +5,7 @@ metadata:
   namespace: muchtodo
 data:
   ".env": |
-    PORT=3000
+    PORT=8080
     MONGO_URI=mongodb://mongodb-service.muchtodo.svc.cluster.local:27017
     DB_NAME=much_todo_db
     JWT_EXPIRATION_HOURS="72"

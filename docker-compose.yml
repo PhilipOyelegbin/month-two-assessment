@@ -6,12 +6,12 @@ services:
     volumes:
       - ./much-to-do/Server/MuchToDo/.env:/app/.env:ro
     ports:
-      - "3000:3000"
+      - "8080:8080"
     restart: unless-stopped
     depends_on:
       - mongo_db
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
       interval: 30s
       timeout: 10s
       retries: 5
